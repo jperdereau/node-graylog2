@@ -242,7 +242,7 @@ graylog.prototype._log = function log(short_message, full_message, additionalFie
         });
     }
 
-    if (this.deflate === 'never' || (this.deflate === 'optimal' && payload.length <= this._bufferSize)) {
+    if (this.deflate === 'never') {
       sendPayload(null, payload);
     } else {
       zlib.deflate(payload, sendPayload);
